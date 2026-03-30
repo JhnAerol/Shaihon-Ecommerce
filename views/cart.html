@@ -71,7 +71,8 @@
                         <strong id="cartTotal" style="color:var(--primary-color);">$0.00</strong>
                     </div>
 
-                    <a href="#" id="proceedCheckoutBtn" onclick="proceedToCheckout(event)" class="btn btn-primary w-100 py-3 mt-2 fw-bold text-uppercase">
+                    <a href="#" id="proceedCheckoutBtn" onclick="proceedToCheckout(event)"
+                        class="btn btn-primary w-100 py-3 mt-2 fw-bold text-uppercase">
                         Proceed to Checkout <i class="fas fa-arrow-right ms-2"></i>
                     </a>
                 </div>
@@ -165,16 +166,16 @@
             });
 
             list.innerHTML = html;
-            
+
             // Calculate totals ONLY for selected items
             const selectedItems = cart.filter(item => selectedIds.includes(item.id));
             const totalCount = selectedItems.reduce((acc, item) => acc + item.quantity, 0);
             const totalAmount = selectedItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-            
+
             document.getElementById('cartItemCount').textContent = totalCount + " Items Selected";
             document.getElementById('cartSubtotal').textContent = "$" + totalAmount.toFixed(2);
             document.getElementById('cartTotal').textContent = "$" + totalAmount.toFixed(2);
-            
+
             // Disable checkout button if nothing is selected
             const checkoutBtn = document.getElementById('proceedCheckoutBtn');
             if (selectedIds.length === 0) {
@@ -184,7 +185,7 @@
             }
         }
 
-        window.toggleSelection = function(id) {
+        window.toggleSelection = function (id) {
             if (selectedIds.includes(id)) {
                 selectedIds = selectedIds.filter(itemId => itemId !== id);
             } else {
@@ -193,7 +194,7 @@
             renderCartPage();
         }
 
-        window.proceedToCheckout = function(e) {
+        window.proceedToCheckout = function (e) {
             e.preventDefault();
             if (selectedIds.length === 0) return;
             sessionStorage.setItem('checkoutItems', JSON.stringify(selectedIds));

@@ -4,7 +4,7 @@ let cart = JSON.parse(localStorage.getItem('yellowBasket')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
-    
+
     // Listen for add to cart clicks globally
     document.body.addEventListener('click', (e) => {
         if (e.target.closest('.add-to-cart-btn')) {
@@ -22,7 +22,7 @@ function saveCart() {
 
 function addToCart(productId, quantity = 1) {
     if (!window.productsData) return;
-    
+
     const product = window.productsData.find(p => p.id === productId);
     if (!product) return;
 
@@ -35,24 +35,24 @@ function addToCart(productId, quantity = 1) {
     const existingItem = cart.find(item => item.id === productId);
     if (existingItem) {
         if (existingItem.quantity + quantity > availableStock) {
-             alert(`You can only add up to ${availableStock} of this item.`);
-             return;
+            alert(`You can only add up to ${availableStock} of this item.`);
+            return;
         }
         existingItem.quantity += quantity;
     } else {
         if (quantity > availableStock) {
-             alert(`You can only add up to ${availableStock} of this item.`);
-             return;
+            alert(`You can only add up to ${availableStock} of this item.`);
+            return;
         }
         cart.push({ id: productId, quantity: quantity, price: product.price, name: product.name, image: product.images[0] });
     }
-    
+
     saveCart();
-    
+
     // Simple toast notification or alert
     // In a real app we'd use a bootstrap toast, using alert to keep it simple for now
     console.log(`${product.name} added to Yellow Basket. Total items:`, getCartTotalItems());
-    
+
     // Give visual feedback
     const btn = document.querySelector(`.add-to-cart-btn[data-id="${productId}"]`);
     if (btn) {
@@ -72,12 +72,12 @@ function removeFromCart(productId) {
 }
 
 function updateQuantity(productId, newQuantity) {
-    if(!window.productsData) return;
+    if (!window.productsData) return;
     const product = window.productsData.find(p => p.id === productId);
-    if(!product) return;
-    
+    if (!product) return;
+
     const availableStock = getAvailableStock(product);
-    
+
     const item = cart.find(i => i.id === productId);
     if (item) {
         if (newQuantity <= 0) {
@@ -120,7 +120,7 @@ function clearCart() {
 // Function to officially decrease stock globally upon successful checkout
 function processCheckoutToDecreaseStock(selectedIds) {
     let purchased = JSON.parse(localStorage.getItem('purchasedStock')) || {};
-    
+
     // Determine which items we are checking out
     const itemsToCheckOut = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
 
@@ -133,7 +133,7 @@ function processCheckoutToDecreaseStock(selectedIds) {
     });
 
     localStorage.setItem('purchasedStock', JSON.stringify(purchased));
-    
+
     // Remove the checked-out items from the global cart
     if (selectedIds) {
         cart = cart.filter(item => !selectedIds.includes(item.id));

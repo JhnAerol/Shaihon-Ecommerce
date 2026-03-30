@@ -161,7 +161,7 @@
 
             document.getElementById('checkoutForm').addEventListener('submit', (e) => {
                 e.preventDefault();
-                
+
                 const selectedIds = JSON.parse(sessionStorage.getItem('checkoutItems'));
                 const checkoutItems = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
                 if (checkoutItems.length === 0) return alert("Cart is empty");
@@ -171,7 +171,7 @@
 
                 // Flag to trigger order status display
                 localStorage.setItem('hasOngoingOrder', 'true');
-                
+
                 // Clear the session checkout array since the order is confirmed
                 sessionStorage.removeItem('checkoutItems');
 
@@ -184,7 +184,7 @@
             const list = document.getElementById('checkoutItemsList');
             const selectedIds = JSON.parse(sessionStorage.getItem('checkoutItems'));
             const checkoutItems = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
-            
+
             if (checkoutItems.length === 0) {
                 document.getElementById('checkoutFlow').style.display = 'none';
                 document.getElementById('emptyCartMessage').style.display = 'block';
@@ -208,10 +208,10 @@
             });
 
             list.innerHTML = html;
-            
+
             const totalCount = checkoutItems.reduce((acc, item) => acc + item.quantity, 0);
             const totalAmount = checkoutItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-            
+
             document.getElementById('checkoutItemCount').textContent = totalCount + " Items";
             document.getElementById('cartSubtotal').textContent = "$" + totalAmount.toFixed(2);
             document.getElementById('cartTotal').textContent = "$" + totalAmount.toFixed(2);
