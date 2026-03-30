@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Yellow Basket - Shaihon's Cosmetic</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="bg-light">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Shaihon's Cosmetic</a>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Shop Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="suppliers.html">Brands</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="cart.html" class="text-decoration-none cart-icon me-3 position-relative"
+                        title="Yellow Basket">
+                        <i class="fas fa-shopping-basket fa-lg" style="color:var(--cart-accent);"></i>
+                        <span class="cart-badge" id="cartBadgeCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Content -->
+    <div class="container my-5 pb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-6" style="font-family: var(--font-heading);">Your Yellow Basket</h1>
+            <p class="text-muted">Review items before checkout</p>
+        </div>
+
+        <div class="row justify-content-center" id="cartFlow">
+            <div class="col-md-8">
+                <div class="card border-0 shadow-sm p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="mb-0">Selected Items</h4>
+                        <span class="badge bg-secondary rounded-pill" id="cartItemCount"
+                            style="background-color: var(--primary-color) !important;">0 Items</span>
+                    </div>
+
+                    <ul class="list-group list-group-flush mb-4" id="cartItemsList">
+                        <div class="text-center py-4">
+                            <div class="spinner-border text-pink" style="color:var(--primary-color);" role="status">
+                            </div>
+                        </div>
+                    </ul>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <strong id="cartSubtotal">$0.00</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4 pb-3 border-bottom">
+                        <span>Shipping</span>
+                        <strong class="text-success">Calculated at Checkout</strong>
+                    </div>
+                    <div class="d-flex justify-content-between fs-4 mb-4">
+                        <strong>Total</strong>
+                        <strong id="cartTotal" style="color:var(--primary-color);">$0.00</strong>
+                    </div>
+
+                    <a href="checkout.html" class="btn btn-primary w-100 py-3 mt-2 fw-bold text-uppercase">
+                        Proceed to Checkout <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="emptyCartMessage" class="text-center py-5" style="display:none;">
+            <i class="fas fa-shopping-basket fa-4x mb-4 text-muted"
+                style="color:var(--cart-accent) !important; opacity:0.5;"></i>
+            <h3 class="fw-bold">Your Yellow Basket is empty.</h3>
+            <p class="text-muted">Browse our collection and find something beautiful.</p>
+            <a href="products.html" class="btn btn-primary mt-3 px-5 py-2">Start Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">Shaihon's Cosmetic</div>
+                    <p class="small text-pink">A premium beauty and skincare e-commerce platform offering quality
+                        cosmetic products for everyday use.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="products.html">Shop All</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                        <li><a href="order-status.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> support@shaihonscosmetic.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="fs-5"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-3 border-top border-secondary mt-3">
+                <small class="text-pink">&copy; 2026 Shaihon's Cosmetic. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        document.addEventListener('productsLoaded', () => {
+            renderCartPage();
+        });
+
+        function renderCartPage() {
+            const list = document.getElementById('cartItemsList');
+            if (cart.length === 0) {
+                document.getElementById('cartFlow').style.display = 'none';
+                document.getElementById('emptyCartMessage').style.display = 'block';
+                return;
+            }
+
+            let html = '';
+            cart.forEach(item => {
+                html += `
+                    <li class="list-group-item d-flex justify-content-between lh-sm px-0 py-3">
+                        <div class="d-flex">
+                            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" class="me-3">
+                            <div>
+                                <h6 class="my-0">${item.name}</h6>
+                                <small class="text-muted">Qty: ${item.quantity}</small> <br>
+                                <span class="badge bg-danger rounded-pill mt-2" style="cursor:pointer;" onclick="removeItem(${item.id})">Remove</span>
+                            </div>
+                        </div>
+                        <span class="text-muted fw-bold mt-2">$${(item.price * item.quantity).toFixed(2)}</span>
+                    </li>
+                `;
+            });
+
+            list.innerHTML = html;
+            document.getElementById('cartItemCount').textContent = getCartTotalItems() + " Items";
+            document.getElementById('cartSubtotal').textContent = "$" + getCartTotalAmount().toFixed(2);
+            document.getElementById('cartTotal').textContent = "$" + getCartTotalAmount().toFixed(2);
+        }
+
+        window.removeItem = function (id) {
+            removeFromCart(id);
+            renderCartPage();
+        }
+    </script>
+</body>
+
+</html>

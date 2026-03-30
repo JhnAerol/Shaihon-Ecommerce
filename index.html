@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaihon's Cosmetic - Premium E-Commerce</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">Shaihon's Cosmetic</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./views/products.html">Shop Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./views/suppliers.html">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./views/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./views/contact.html">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="./views/cart.html" class="text-decoration-none cart-icon me-3 position-relative"
+                        title="Yellow Basket">
+                        <i class="fas fa-shopping-basket fa-lg" style="color:var(--cart-accent);"></i>
+                        <span class="cart-badge" id="cartBadgeCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <div class="container my-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-lg-start mb-5 mb-lg-0">
+                    <h1 class="hero-title">Elevate Your Natural Glow</h1>
+                    <p class="lead mb-4 text-muted">Discover our curated collection of premium cosmetics and skincare
+                        essentials. Unveil beauty that speaks for itself.</p>
+                    <a href="./views/products.html" class="btn btn-primary btn-lg me-2">Shop Now</a>
+                    <a href="#featured" class="btn btn-outline-primary btn-lg">Browse Collection</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="./resources/bg.png" alt="Shaihon's Cosmetics Background"
+                        class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Products -->
+    <section id="featured" class="container my-5 py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold" style="font-family: var(--font-heading);">Featured Favorites</h2>
+            <p class="text-muted">Hand-picked selections for your daily routine</p>
+        </div>
+        <div class="row" id="featuredProductsContainer">
+            <!-- Loading Spinner -->
+            <div class="text-center w-100 py-3">
+                <div class="spinner-border text-pink" role="status" style="color: var(--primary-color);">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Highlights -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h3 class="mb-4" style="font-family: var(--font-heading);">Our Premium Suppliers</h3>
+            <div class="row justify-content-center align-items-center opacity-75">
+                <div class="col-md-3 col-6 mb-3">
+                    <h5 class="fw-bold">Zenthraelle Cosmétiques</h5>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <h5 class="fw-bold">Velkynra Skin Atelier</h5>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <h5 class="fw-bold">Auravelleth Beauty Lab</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">Shaihon's Cosmetic</div>
+                    <p class="small text-pink">A premium beauty and skincare e-commerce platform offering quality
+                        cosmetic products for everyday use.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./views/products.html">Shop All</a></li>
+                        <li><a href="./views/about.html">About Us</a></li>
+                        <li><a href="./views/contact.html">Contact Support</a></li>
+                        <li><a href="./views/order-status.html">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> support@shaihonscosmetic.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +1 (800) 123-4567</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="fs-5"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-3 border-top border-secondary mt-3">
+                <small class="text-pink">&copy; 2026 Shaihon's Cosmetic. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Logic -->
+    <script src="./js/app.js"></script>
+    <script src="./js/cart.js"></script>
+    <script>
+        document.addEventListener('productsLoaded', () => {
+            const container = document.getElementById('featuredProductsContainer');
+            container.innerHTML = '';
+
+            // Show only first 6 featured items
+            const featured = window.productsData.filter(p => p.isFeatured).slice(0, 6);
+
+            if (featured.length === 0) {
+                container.innerHTML = '<p class="text-center">No featured products available.</p>';
+                return;
+            }
+
+            featured.forEach(product => {
+                container.appendChild(createProductCard(product));
+            });
+        });
+    </script>
+</body>
+
+</html>
