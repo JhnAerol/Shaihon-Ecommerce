@@ -118,15 +118,27 @@ function clearCart() {
 }
 
 // Function to officially decrease stock globally upon successful checkout
-function processCheckoutToDecreaseStock() {
+function processCheckoutToDecreaseStock(selectedIds) {
     let purchased = JSON.parse(localStorage.getItem('purchasedStock')) || {};
-    cart.forEach(item => {
+    
+    // Determine which items we are checking out
+    const itemsToCheckOut = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
+
+    itemsToCheckOut.forEach(item => {
         if (purchased[item.id]) {
             purchased[item.id] += item.quantity;
         } else {
             purchased[item.id] = item.quantity;
         }
     });
+
     localStorage.setItem('purchasedStock', JSON.stringify(purchased));
-    clearCart();
+    
+    // Remove the checked-out items from the global cart
+    if (selectedIds) {
+        cart = cart.filter(item => !selectedIds.includes(item.id));
+        saveCart();
+    } else {
+        clearCart();
+    }
 }

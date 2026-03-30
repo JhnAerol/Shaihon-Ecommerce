@@ -161,13 +161,19 @@
 
             document.getElementById('checkoutForm').addEventListener('submit', (e) => {
                 e.preventDefault();
-                if (cart.length === 0) return alert("Cart is empty");
+                
+                const selectedIds = JSON.parse(sessionStorage.getItem('checkoutItems'));
+                const checkoutItems = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
+                if (checkoutItems.length === 0) return alert("Cart is empty");
 
-                // Execute logic to decrease stock globally via localStorage
-                processCheckoutToDecreaseStock();
+                // Execute logic to decrease stock globally via localStorage ONLY for selected items
+                processCheckoutToDecreaseStock(selectedIds);
 
                 // Flag to trigger order status display
                 localStorage.setItem('hasOngoingOrder', 'true');
+                
+                // Clear the session checkout array since the order is confirmed
+                sessionStorage.removeItem('checkoutItems');
 
                 // Redirect user to success
                 window.location.href = "order-status.html";
@@ -176,14 +182,17 @@
 
         function renderCheckout() {
             const list = document.getElementById('checkoutItemsList');
-            if (cart.length === 0) {
+            const selectedIds = JSON.parse(sessionStorage.getItem('checkoutItems'));
+            const checkoutItems = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
+            
+            if (checkoutItems.length === 0) {
                 document.getElementById('checkoutFlow').style.display = 'none';
                 document.getElementById('emptyCartMessage').style.display = 'block';
                 return;
             }
 
             let html = '';
-            cart.forEach(item => {
+            checkoutItems.forEach(item => {
                 html += `
                     <li class="list-group-item d-flex justify-content-between lh-sm px-0 py-3">
                         <div class="d-flex">
@@ -199,9 +208,13 @@
             });
 
             list.innerHTML = html;
-            document.getElementById('checkoutItemCount').textContent = getCartTotalItems() + " Items";
-            document.getElementById('cartSubtotal').textContent = "$" + getCartTotalAmount().toFixed(2);
-            document.getElementById('cartTotal').textContent = "$" + getCartTotalAmount().toFixed(2);
+            
+            const totalCount = checkoutItems.reduce((acc, item) => acc + item.quantity, 0);
+            const totalAmount = checkoutItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            
+            document.getElementById('checkoutItemCount').textContent = totalCount + " Items";
+            document.getElementById('cartSubtotal').textContent = "$" + totalAmount.toFixed(2);
+            document.getElementById('cartTotal').textContent = "$" + totalAmount.toFixed(2);
         }
 
         window.removeItem = function (id) {
