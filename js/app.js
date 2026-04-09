@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Determine the base path based on current folder
+
     const basePath = window.location.pathname.includes('/views/') ? '../' : './';
     window.AppBasePath = basePath;
 
-    // Load common components if needed, or initialize global scripts
+
     initApp();
 });
 
 async function initApp() {
     try {
         window.productsData = await fetchProducts();
-        // Dispatch an event so other scripts know products are loaded
+
         document.dispatchEvent(new Event('productsLoaded'));
     } catch (error) {
         console.error("Error loading products:", error);
@@ -18,6 +18,9 @@ async function initApp() {
 }
 
 async function fetchProducts() {
+    if (window.productsData) {
+        return window.productsData;
+    }
     const url = `${window.AppBasePath}data/products.json`;
     const response = await fetch(url);
     if (!response.ok) {
@@ -26,14 +29,14 @@ async function fetchProducts() {
     return await response.json();
 }
 
-// Global utility for computing current stock
+
 function getAvailableStock(product) {
     const purchased = JSON.parse(localStorage.getItem('purchasedStock')) || {};
     const boughtAmount = purchased[product.id] || 0;
     return Math.max(0, product.stock - boughtAmount);
 }
 
-// Global utility for generating product cards (used in index, products pages)
+
 function createProductCard(product, returnHtml = false) {
     const stockInfo = getAvailableStock(product);
     const stockBadge = stockInfo > 0 
@@ -77,3 +80,4 @@ function createProductCard(product, returnHtml = false) {
     div.innerHTML = html.trim();
     return div.firstChild;
 }
+

@@ -21,11 +21,11 @@ function buildFilters() {
     const catContainer = document.getElementById('categoryFilters');
     const brandContainer = document.getElementById('brandFilters');
     
-    // Extract unique labels
+
     const categories = [...new Set(products.map(p => p.category))];
     const brands = [...new Set(products.map(p => p.brand))];
 
-    // Build Category Checkboxes
+
     if(catContainer) {
         catContainer.innerHTML = categories.map(cat => `
             <div class="form-check mb-2">
@@ -35,7 +35,7 @@ function buildFilters() {
         `).join('');
     }
 
-    // Build Brand Checkboxes
+
     if(brandContainer) {
         brandContainer.innerHTML = brands.map(brand => `
             <div class="form-check mb-2">
@@ -45,7 +45,7 @@ function buildFilters() {
         `).join('');
     }
 
-    // Listen to changes
+
     document.querySelectorAll('.filter-checkbox').forEach(cb => {
         cb.addEventListener('change', (e) => {
             const type = e.target.getAttribute('data-type');
@@ -68,7 +68,7 @@ window.renderFilteredProducts = function() {
     const { query, categories, brands } = window.activeFilters;
     let filtered = window.productsData;
 
-    // Apply search query
+
     if (query) {
         filtered = filtered.filter(p => 
             p.name.toLowerCase().includes(query) || 
@@ -76,12 +76,12 @@ window.renderFilteredProducts = function() {
         );
     }
 
-    // Apply category filters
+
     if (categories.length > 0) {
         filtered = filtered.filter(p => categories.includes(p.category));
     }
 
-    // Apply brand filters
+
     if (brands.length > 0) {
         filtered = filtered.filter(p => brands.includes(p.brand));
     }
@@ -101,3 +101,4 @@ window.renderFilteredProducts = function() {
         container.appendChild(createProductCard(product));
     });
 };
+

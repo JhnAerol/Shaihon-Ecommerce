@@ -15,10 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(searchBtn) {
         searchBtn.addEventListener('click', () => {
-            // Triggered on input anyway, but handles explicit click logic if needed
+
             if (window.activeFilters && typeof window.renderFilteredProducts === 'function') {
                 window.renderFilteredProducts();
             }
         });
     }
 });
+

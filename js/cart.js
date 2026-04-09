@@ -1,11 +1,11 @@
-// Cart Logic for "Yellow Basket"
+
 
 let cart = JSON.parse(localStorage.getItem('yellowBasket')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
     updateCartBadge();
 
-    // Listen for add to cart clicks globally
+
     document.body.addEventListener('click', (e) => {
         if (e.target.closest('.add-to-cart-btn')) {
             const btn = e.target.closest('.add-to-cart-btn');
@@ -49,11 +49,11 @@ function addToCart(productId, quantity = 1) {
 
     saveCart();
 
-    // Simple toast notification or alert
-    // In a real app we'd use a bootstrap toast, using alert to keep it simple for now
+
+
     console.log(`${product.name} added to Yellow Basket. Total items:`, getCartTotalItems());
 
-    // Give visual feedback
+
     const btn = document.querySelector(`.add-to-cart-btn[data-id="${productId}"]`);
     if (btn) {
         const originalText = btn.innerHTML;
@@ -106,7 +106,7 @@ function updateCartBadge() {
     const total = getCartTotalItems();
     badges.forEach(badge => {
         badge.textContent = total;
-        // Optionally flash the badge
+
         badge.style.transform = 'scale(1.2)';
         setTimeout(() => badge.style.transform = 'scale(1)', 200);
     });
@@ -117,11 +117,11 @@ function clearCart() {
     saveCart();
 }
 
-// Function to officially decrease stock globally upon successful checkout
+
 function processCheckoutToDecreaseStock(selectedIds) {
     let purchased = JSON.parse(localStorage.getItem('purchasedStock')) || {};
 
-    // Determine which items we are checking out
+
     const itemsToCheckOut = selectedIds ? cart.filter(item => selectedIds.includes(item.id)) : cart;
 
     itemsToCheckOut.forEach(item => {
@@ -134,7 +134,7 @@ function processCheckoutToDecreaseStock(selectedIds) {
 
     localStorage.setItem('purchasedStock', JSON.stringify(purchased));
 
-    // Remove the checked-out items from the global cart
+
     if (selectedIds) {
         cart = cart.filter(item => !selectedIds.includes(item.id));
         saveCart();
@@ -142,3 +142,4 @@ function processCheckoutToDecreaseStock(selectedIds) {
         clearCart();
     }
 }
+

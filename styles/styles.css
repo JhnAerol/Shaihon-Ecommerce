@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  --primary-color: #b76e79; /* Rose Gold */
-  --secondary-color: #f8ede6; /* Blush Pink */
-  --dark-color: #333333; /* Deep Charcoal */
+  --primary-color: #b76e79; 
+  --secondary-color: #f8ede6; 
+  --dark-color: #333333; 
   --light-bg: #fafafa;
   --white: #ffffff;
   --font-heading: 'Playfair Display', serif;
   --font-body: 'Lato', sans-serif;
-  --cart-accent: #fbc531; /* Subtle "Yellow Basket" hint */
+  --cart-accent: #fbc531; 
   --transition: all 0.3s ease-in-out;
 }
 
@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-family: var(--font-heading);
 }
 
-/* Navbar */
+
 .navbar {
   background-color: var(--white);
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -48,7 +48,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   color: var(--primary-color) !important;
 }
 
-/* Yellow Basket Icon */
+
 .cart-icon {
   color: var(--cart-accent);
   font-size: 1.2rem;
@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   font-weight: bold;
 }
 
-/* Buttons */
+
 .btn-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   color: var(--white);
 }
 
-/* Cards */
+
 .product-card {
   border: none;
   border-radius: 12px;
@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   margin-left: 8px;
 }
 
-/* Hero Section */
+
 .hero-section {
   background: linear-gradient(to right, var(--secondary-color), var(--white));
   padding: 80px 0;
@@ -148,7 +148,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
   margin-bottom: 20px;
 }
 
-/* Footer */
+
 footer {
   background-color: var(--dark-color);
   color: var(--white);
@@ -170,7 +170,7 @@ footer a:hover {
   margin-bottom: 20px;
 }
 
-/* Status Timeline */
+
 .timeline {
   list-style: none;
   padding: 0;
@@ -212,7 +212,7 @@ footer a:hover {
   color: var(--white);
 }
 
-/* Details Page */
+
 .details-img-main {
   width: 100%;
   height: auto;
@@ -227,3 +227,4 @@ footer a:hover {
   color: #27ae60;
   font-weight: bold;
 }
+
